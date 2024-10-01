@@ -1,0 +1,85 @@
+.plan1 {
+  width: 250px;
+  height: 210px;
+  background-color: #f5e0e0;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.pln1-info {
+  height: 20px;
+  background-color: #faeaea;
+  margin-top: 2px;
+  border-radius: 8px;
+}
+.jours {
+  height: 10px;
+}
+.plan1 .except {
+  padding-bottom: 10px;
+}
+.side-l-1 input[type="submit"] {
+  background-color: #eb9292;
+  color: white;
+  border: none;
+  border: 1px solid black;
+}
+.side-l-1 {
+  overflow-x: scroll;
+}
+.classes {
+  overflow-x: scroll;
+}
+.classe1 {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  margin-left: 10px;
+  border: 1px solid black;
+}
+.classe1 .img-cl1 img {
+  width: 250px;
+  height: 115px;
+}
+.side-l-2 input[type="submit"] {
+  background-color: #eb9292;
+  color: white;
+  border: none;
+  border: 1px solid black;
+}
+
+.side-r-1 .commande1 .img-com img {
+  width: 100px;
+  height: 100px;
+}
+.side-r-1 .commande1 {
+  width: 70%;
+  border: 1px solid black;
+  background-color: #ffff;
+}
+.side-r-1 .commande1 .info-com {
+  width: 100%;
+}
+.side-r-1 input[type="submit"] {
+  background-color: #eb9292;
+  color: white;
+  border: none;
+  border: 1px solid black;
+}
+.commandes {
+  height: 360px;
+  overflow-y: scroll;
+}
+.side-r-2 input[type="submit"] {
+  background-color: #eb9292;
+  color: white;
+  border: none;
+  border: 1px solid black;
+}
+.info-fact {
+  width: 500px;
+  height: 120px;
+  background-color: #ffff;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+

@@ -1,0 +1,49 @@
+.connect {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.connect .img-connect img {
+  width: 100%;
+  height: 100vh;
+  opacity: 0.4;
+}
+.connexion {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  display: flex;
+  border: 1px solid black;
+}
+.connexion-img img {
+  width: 800px;
+}
+.connexion-info {
+  padding: 30px;
+  background-color: white;
+}
+.connexion-info h2 {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+.connexion-info input {
+  padding: 5px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.connexion-info p {
+  margin-top: 30px;
+  color: blue;
+}
+.connexion-info input[type="submit"] {
+  margin-top: 50px;
+  padding: 5px;
+}
+.button-danger {
+  width: 150px;
+}
+.button-success {
+  width: 150px;
+}

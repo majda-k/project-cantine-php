@@ -1,0 +1,120 @@
+.container1{
+    margin-bottom: 50px;
+
+}
+.menu {
+    background-color: #EFD1D0;
+    width: 250px;
+    height: 100vh;
+
+}
+.dashbord-content{
+    background-color: white;
+    width: 100%;
+    height: 90vh;
+  
+}
+
+.header {
+    width: 100%;
+    height: 64px;
+    background-color:#F8F7F7;
+}
+
+.content4 {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.side-l{
+    width: 50%;
+    height: calc(100vh - 90px);
+    background-color: white;
+    gap: var(--space-2);
+    padding: var(--space-2);
+}
+.side-r{
+    width: 100%;
+    height: calc(100vh - 90px);
+    background-color: white;
+}
+.side-r-1{
+    width: 100%;
+    height: 70%;
+background-color: #F8F7F7;
+border-radius: 8px;
+
+}
+.side-r-2{
+    height: 30%;
+    background-color: #F8F7F7;
+    border-radius: 8px;
+}
+.side-l-1 {
+    height: 40vh;
+    background-color: #F8F7F7;
+    border-radius: var(--space-1) ;
+
+
+}
+.side-l-2 {
+    height: 40vh;
+    background-color: #F8F7F7;
+    border-radius: var(--space-1) ;
+
+}
+.content2 {
+    background-color: white;
+  
+}
+table {
+    border-collapse: collapse;
+   margin-top: 100px;
+   margin-left: 200px;
+  
+}
+th , tr {
+    border: 1px solid black;
+    padding: 10px;
+    font-weight: normal;
+    width: 170px;
+}
+.content2 table .encours{
+    background-color: var( --success-color);
+   
+}
+.content2 table .annuler {
+    background-color: var( --danger-color);
+}
+.content2 table .passer{
+    background-color: var(--primary-color);
+}
+.client-modifier {
+    width: 100%;
+    display: flex;
+  justify-content: center;
+}
+.info-client {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 563px;
+}
+.info-client input[type="text"]{
+height: 30px;
+width: 630px;
+border-radius: 8px;
+}
+.info-client .nom-pre input[type="text"] {
+    width: 300px;
+}
+.button-client {
+    display: flex;
+    justify-content: space-between;
+}
+.button-client button {
+    width: 300px;
+   
+}

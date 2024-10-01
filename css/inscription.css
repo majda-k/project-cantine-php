@@ -1,0 +1,54 @@
+
+.inscription {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.inscription .inscription-img img{
+    width: 100%;
+    height: 100vh;
+    opacity: 0.4;
+}
+.inscript {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    display: flex;
+    border: 1px solid black;
+}
+.inscript-img img {
+    width: 800px;
+    height: 550px;
+}
+.inscript-info {
+    padding: 20px;
+    background-color: white;
+    width: 400px;
+}
+.inscript-info h2 {
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+.inscript-info input[type="text"]{
+    padding: 5px;
+    border-radius: 8px;
+}
+.inscript-info p {
+    margin-top: 30px;
+    color: blue;
+}
+.inscript-form {
+    width: 400px;
+  
+}
+.inscript-info input[type="submit"]{
+    margin-top: 50px;
+    padding: 5px;
+}
+.button-danger {
+    width: 150px;
+}
+.button-success {
+    width: 150px;
+}
