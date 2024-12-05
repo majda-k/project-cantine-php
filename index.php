@@ -39,7 +39,7 @@
                                 <a href='login.php' class="btn btn-primary">
                                     <i class="fas fa-sign-in-alt me-2"></i>Se connecter
                                 </a>
-                                <a href='register.php' class="btn btn-outline-primary">
+                                <a href='inscription.php' class="btn btn-outline-primary">
                                     <i class="fas fa-user-plus me-2"></i>S'inscrire
                                 </a>
                             </div>
