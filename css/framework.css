@@ -56,7 +56,9 @@
   --font-4xl: 48px;
   --font-5xl: 64px;
 }
-
+.text-decoration-none{
+  text-decoration: none;
+}
 /* Font Size Utilities */
 .font-xs {
   font-size: var(--font-xs);

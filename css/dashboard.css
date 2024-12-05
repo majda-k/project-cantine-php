@@ -1,5 +1,6 @@
 .container1 {
     margin-top: 100px;
+
 }
 
 
@@ -72,9 +73,8 @@ border-radius: 8px;
 }
 table {
     border-collapse: collapse;
-   margin-top: 100px;
-   margin-left: 200px;
-  
+   margin-top: 80px;
+   margin-left: 15px;
 }
 th , tr {
     border: 1px solid black;

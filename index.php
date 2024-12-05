@@ -11,14 +11,14 @@
 
 <body>
     <div id="header">
-        Welcome to my page!
+        Bonjour!
     </div>
 
     <?php
 
     if (isset($_SESSION["is_loged_in"])) {
     ?>
-        Welcome <?php echo $_SESSION['email'] ?> ! <a href='logout.php'>Logout</a><br />
+       Bonjour <?php echo $_SESSION['email'] ?> ! <a href='logout.php'> se deconnecter</a><br />
         <br />
         <a href='view.php'>View and Add Products</a>
         <br /><br />
@@ -32,7 +32,7 @@
     ?>
 
     <div id="footer">
-        Created by <a href="#header" >majda</a>
+        Creer by <a href="#header" >majda</a>
     </div>
 </body>
 
