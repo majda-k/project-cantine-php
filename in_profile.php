@@ -40,7 +40,7 @@ function load($role)
 <?php include("./htmlHeader/HeadTag.php"); ?>
 
 <body>
-    <div class="container flex">
+    <div class="flex">
         <?php
         require_once "./components/menu.php";
         load($userRole);

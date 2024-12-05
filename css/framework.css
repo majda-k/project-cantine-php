@@ -807,3 +807,79 @@
 .basis-auto {
   flex-basis: auto;
 }
+
+/* Menu styles */
+.menu {
+  background: #2c3e50;
+  min-height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu div {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.menu div:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.menu a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+.menu i {
+  color: #000000;
+  width: 20px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.menu div:hover a,
+.menu div:hover i {
+  color: #000000;
+}
+
+/* Active menu item styles */
+.menu .active {
+  background-color: #3498db !important;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu .active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 0 2px 2px 0;
+}
+
+.menu .active a,
+.menu .active i {
+  color: #000000;
+}
+
+.menu img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 30px;
+}

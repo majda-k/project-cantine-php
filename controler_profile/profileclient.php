@@ -1,16 +1,16 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
-    include './connexion.php';
+    include '../connexion.php';
 
-    $id =  ($_POST['id']) ?? null;
-    $nom = $_POST['nom'] ?? '';
-    $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
-    $number = isset($_POST['number']) ? $_POST['number'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $adresse = isset($_POST['Adresse']) ? $_POST['Adresse'] : '';
-    $redirect = isset($_POST['redirect']) ? $_POST['redirect'] : null;
+    $id =  $_POST['id'] ?? null;
+    $nom = $_POST['nom'] ?? null;
+    $prenom =  $_POST['prenom'] ?? null;
+    $number = $_POST['number'] ?? null;
+    $password = $_POST['password'] ?? null;
+    $email =  $_POST['email'] ?? null;
+    $adresse =  $_POST['Adresse'] ?? null;
+    $redirect = $_POST['redirect'] ?? null;
 
 
 
@@ -49,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
     $executeisOk = $pdostat->execute();
 
     if ($executeisOk) {
-        if ($redirect !== null) {
-            header('location: ../' . $_POST['redirect']);
+        if ($redirect !== null && $redirect !== '') {
+            header('location: ../' . $redirect);
         } else {
-            header('location: /project-cantine-php/in_profile.php/controler_profile/profileclient.php?id= ' . $id);
+            header('location: /project-cantine-php/in_profile.php');
         }
 
         exit();
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
 } else {
     include './connexion.php';
 
-    $user_id = $_POST['user_id'] ?? null;
+    $user_id = $_POST['user_id'] ?? $_SESSION['user_id'] ?? null;
     $redirect =  $_POST['redirect'] ?? null;
 
 
@@ -99,9 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
 
             <div class="client-modifier ">
                 <div class="info-client flex  mt2 ">
-                    <form id="profileForm" action="/project-cantine-php/controler_profile/profileclient.php" method="POST">
+                    <form id="profileForm" action="http://localhost/project-cantine-php/controler_profile/profileclient.php" method="POST">
                         <div class="prenom-client mr3">
                             <input type="text" name="id" data-original="<?= $user['id'] ?>" value="<?= $user['id'] ?>" disabled>
+                            <input type="hidden" name="id" data-original="<?= $user['id'] ?>" value="<?= $user['id'] ?>">
                         </div>
                         <div class="prenom-client mr3">
                             <p>prenom</p>

@@ -14,7 +14,7 @@ $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 <html lang="en">
   <?php include("./htmlHeader/HeadTag.php"); ?>
   <body>
-  <div class="container flex">
+  <div class="flex">
   <?php require_once "./components/menu.php"; ?>
     <?php
     // Include the appropriate dashboard based on user role

@@ -17,7 +17,7 @@ $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 <?php include("./htmlHeader/HeadTag.php"); ?>
 
 <body>
-    <div class="container flex">
+    <div class="flex">
         <?php
         require_once "./components/menu.php";
         $action = isset($_POST['action']) ? $_POST['action'] : null;
