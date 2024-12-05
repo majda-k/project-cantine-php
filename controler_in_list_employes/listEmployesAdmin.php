@@ -88,14 +88,14 @@ $users = $pdostat->fetchAll();
 
                             <form action="in_listEmployes.php" method="POST">
                                     <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
-                                    <input type="hidden" name="redirect" value="/project-cantine-php/in_listEmployes.php">
+                                    <input type="hidden" name="redirect" value="in_listEmployes.php">
                                     <button type="submit" name="action" value="openUserProfile" class="button-success mr1 ">Modifier</button>
                                 </form>
 
 
                                 <form action="in_listEmployes.php" method="POST">
                                     <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
-                                    <input type="hidden" name="redirect" value="/project-cantine-php/in_listEmployes.php">
+                                    <input type="hidden" name="redirect" value="project-cantine-php/in_listEmployes.php">
                                     <button type="submit" name="action" value="deleteUser" class="button-danger mr1 ">Suprimer</button>
                                 </form>
 

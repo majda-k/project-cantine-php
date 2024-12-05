@@ -88,10 +88,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
                         } else { ?>
                             <button type="submit" class="button-success">Creer</button>
                         <?php } ?>
-                        <button type="reset" class="button-danger">Annuler</button>
-                    </div>
-                </div>
+            </form>
+            <form action="" method="post">
+                <button type="button" class="button-danger" onclick="window.history.back()">Annuler</button>
+            </form>
         </div>
+    </div>
+    </div>
     </div>
 <?php
 

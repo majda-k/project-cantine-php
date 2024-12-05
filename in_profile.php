@@ -19,16 +19,16 @@ function load($role)
     switch ($role) {
 
         case 'client':
-            case 'admin';
+        case 'admin';
             include "./controler_profile/profileclient.php";
             break;
 
 
-        // default:
-        //     Déconnexion si rôle invalide
-        //     session_destroy();
-        //     header('Location: login.php');
-        //     exit();
+            // default:
+            //     Déconnexion si rôle invalide
+            //     session_destroy();
+            //     header('Location: login.php');
+            //     exit();
     }
 }
 ?>
@@ -41,11 +41,9 @@ function load($role)
 
 <body>
     <div class="container flex">
-        
         <?php
         require_once "./components/menu.php";
         load($userRole);
- 
         ?>
     </div>
 </body>

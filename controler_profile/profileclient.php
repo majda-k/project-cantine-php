@@ -1,9 +1,9 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
-    include '../connexion.php';
+    include './connexion.php';
 
-    $id =  ($_POST['id'])?? null;
+    $id =  ($_POST['id']) ?? null;
     $nom = $_POST['nom'] ?? '';
     $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
     $number = isset($_POST['number']) ? $_POST['number'] : '';
@@ -42,11 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
             '
     );
 
-   $pdostat->bindValue(':id', $id, PDO::PARAM_INT);
+    $pdostat->bindValue(':id', $id, PDO::PARAM_INT);
     $pdostat->bindValue(':adresse', $adresse, PDO::PARAM_STR);
 
 
-   $executeisOk = $pdostat->execute();
+    $executeisOk = $pdostat->execute();
 
     if ($executeisOk) {
         if ($redirect !== null) {
@@ -98,54 +98,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
         <div class="content4 ">
 
             <div class="client-modifier ">
-                <div class="info-client ">
-                    <form action="/project-cantine-php/controler_profile/profileclient.php" method="POST">
-                        <div class="nom-pre flex flex-row">
-                            <div class="prenom-client mr3">
-                                <input type="text" name="id" value="<?= $user['id'] ?>">
-                            </div>
-                            <div class="prenom-client mr3">
-                                <p>prenom</p>
-                                <input type="text" name="prenom" value="<?= $user['prenom'] ?>">
-                            </div>
-                            <div class="nom-client">
-                                <p>Nom</p>
-                                <input type="text" name="nom" value="<?= $user['nom'] ?>">
-                            </div>
+                <div class="info-client flex  mt2 ">
+                    <form id="profileForm" action="/project-cantine-php/controler_profile/profileclient.php" method="POST">
+                        <div class="prenom-client mr3">
+                            <input type="text" name="id" data-original="<?= $user['id'] ?>" value="<?= $user['id'] ?>" disabled>
+                        </div>
+                        <div class="prenom-client mr3">
+                            <p>prenom</p>
+                            <input type="text" name="prenom" data-original="<?= $user['prenom'] ?>" value="<?= $user['prenom'] ?>">
+                        </div>
+                        <div class="nom-client">
+                            <p>Nom</p>
+                            <input type="text" name="nom" data-original="<?= $user['nom'] ?>" value="<?= $user['nom'] ?>">
                         </div>
                         <div class="adr">
                             <p>Adresse</p>
-                            <input type="text" name="Adresse" value="<?= $adresses['Adresse'] ?>">
+                            <input type="text" name="Adresse" data-original="<?= $adresses['Adresse'] ?>" value="<?= $adresses['Adresse'] ?>">
                         </div>
                         <div class="numero">
                             <p>Numero de Telephone</p>
-                            <input type="text" name="number" value="<?= $user['number'] ?>">
+                            <input type="text" name="number" data-original="<?= $user['number'] ?>" value="<?= $user['number'] ?>">
                         </div>
                         <div class="motdepasse">
                             <p>Mot de Passe</p>
-                            <input type="text" name="password" value="<?= $user['password'] ?>">
+                            <input type="text" name="password" data-original="<?= $user['password'] ?>" value="<?= $user['password'] ?>">
                         </div>
                         <div class="email">
                             <p>Email</p>
-                            <input type="text" name="email" value="<?= $user['email'] ?>">
+                            <input type="text" name="email" data-original="<?= $user['email'] ?>" value="<?= $user['email'] ?>">
                         </div>
-
-                        <div class="button-client flex justify-between mt3">
-                            <input type="hidden" name="redirect" value="<?= $redirect ?>">
+                        <input type="hidden" name="redirect" value="<?= $redirect ?>">
+                        <div class="button-client flex gap-medium m3">
                             <button type="submit" class="button-success">Enregistrer les modifications</button>
+                            <button type="button" class="button-secondary" onclick="resetForm()">Réinitialiser</button>
+                            <button type="button" class="button-danger" onclick="window.history.back()">Annuler</button>
                         </div>
 
-                    </form>
-                    <form action="" method="post">
-                        <button type="reset" class="button-danger">Annuler</button>
                     </form>
                 </div>
-
-                </form>
             </div>
         </div>
     </div>
     </div>
+
+
+    <script>
+        function resetForm() {
+            const form = document.getElementById('profileForm');
+            const inputs = form.getElementsByTagName('input');
+
+            for (let input of inputs) {
+                const originalValue = input.getAttribute('data-original');
+                if (originalValue) {
+                    input.value = originalValue;
+                }
+            }
+        }
+    </script>
 
 
 <?php }

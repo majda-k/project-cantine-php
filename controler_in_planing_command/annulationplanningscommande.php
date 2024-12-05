@@ -67,7 +67,9 @@
 
                               </form>
                               </div>
-                              <button type="reset" class="button-danger">Annuler</button>
+                              <form action="" method="post">
+                        <button type="button" class="button-danger" onclick="window.history.back()">Annuler</button>
+                    </form>
                          
 
                       </div>

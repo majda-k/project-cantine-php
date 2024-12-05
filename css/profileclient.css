@@ -46,5 +46,6 @@ border-radius: 8px;
 }
 
 .button-client button {
-    width: 300px;
+    min-width: 300px;
+    margin: 16px;
 }

@@ -4,7 +4,6 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
         include "../connexion.php";
-
         $plat = $_POST['plat'] ?? null;
         $quantite =  $_POST['quantite'] ?? null;
         $jourCommande = isset($_POST['jourCommande']) ? implode(',', $_POST['jourCommande']) : null;
@@ -25,10 +24,10 @@
 
             //on relie chaque requete a la valeur 
 
-            $pdostat->bindValue(':plat', $plat, PDO::PARAM_STR);
+            $pdostat->bindValue(':plat', trim($plat), PDO::PARAM_STR);
             $pdostat->bindValue(':quantite', $quantite, PDO::PARAM_INT);
-            $pdostat->bindValue(':jourCommande', $jourCommande, PDO::PARAM_STR);
-            $pdostat->bindValue(':heure', $heure, PDO::PARAM_STR);
+            $pdostat->bindValue(':jourCommande', trim($jourCommande), PDO::PARAM_STR);
+            $pdostat->bindValue(':heure', trim($heure), PDO::PARAM_STR);
             $pdostat->bindValue(':prix', $prix, PDO::PARAM_INT);
             $pdostat->bindValue(':idClient', $idClient, PDO::PARAM_INT);
 
@@ -41,6 +40,7 @@
             }
         }
     } else if (isset($_POST['action'])) {
+        $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
         if (isset($_POST['user_id'])) {
             $user_id = $_POST["user_id"];
         }
@@ -57,10 +57,15 @@
                   <div class="pln-cmd flex flex-column mb4">
                       <form action="/project-cantine-php/controler_in_planing_command/creationplanningscommande.php" method='POST'>
                           <div class="plat flex justify-between gap-medium mb3">
+                              <span>Id client</span>
+                              <input type="text" name="idClient" value="<?php echo ($userrole !== 'admin') ? $user_id : ''; ?>" placeholder="Choississezvotre plat ?" <?php echo ($userrole !== 'admin') ? 'disabled' : ''; ?>>
+                          </div>
+                          <div class="plat flex justify-between gap-medium mb3">
                               <span>Plat</span>
                               <input type="text" name="plat" placeholder="Choississezvotre plat ?">
                           </div>
-                          <div class="Qte flex justify-between gap-medium mb3">
+
+                          <div class="plat flex justify-between gap-medium mb3">
                               <span>Quantite</span>
                               <input type="text" name="quantite" placeholder="Quelle Quantite choisissez-vous ?">
                           </div>
@@ -87,7 +92,9 @@
                               <button type="submit" class="button-success">Creer</button>
                       </form>
                       <!-- <form> -->
-                      <button type="submit" class="button-danger">Annuler</button>
+                      <form action="" method="post">
+                          <button type="button" class="button-danger" onclick="window.history.back()">Annuler</button>
+                      </form>
                       </form>
                   </div>
               </div>
