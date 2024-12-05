@@ -29,7 +29,7 @@ $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : null;
                 if($action === "openUserProfile"){
                     include("./controler_profile/profileclient.php");
                 }else if($action === "deleteUser"){
-                    include("./controler_in_listClient/supprimerlisteclient.php");
+                    include("./controler_in_list_employes/supprimerlisteemployes.php");
                 }
                 else{
                     include("./controler_in_list_employes/listEmployesAdmin.php");

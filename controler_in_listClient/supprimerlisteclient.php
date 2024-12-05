@@ -5,6 +5,8 @@ include '../connexion.php';
 if (isset($_POST['user_id'])) {
     // Récupération de l'ID à supprimer
     $id = $_POST['user_id'];
+    $redirect = $_POST['redirect'];
+
 
     $pdostat = $connexion->prepare('DELETE FROM users WHERE id=:id LIMIT 1 ');
 
@@ -14,7 +16,7 @@ if (isset($_POST['user_id'])) {
 
     if ($executeisOk) {
         if ($redirect !== null) {
-            header('location: ../' . $_POST['redirect']);
+            header('location: ./' . $redirect);
         } else {
             header('location: in_listClient.php');
         }
