@@ -12,55 +12,71 @@ if (isset($_POST['action'])) {
 
 ?>
 
-<div class="dashbord-content12 flex flex-column">
-    <!-- debut header -->
-    <div class="header">
-        <h2 class="ml1">Bonjour Majda</h2>
-    </div>
-    <!-- fin header -->
-    <div class="content6 flex justify-center mb3 ">
-        <div class="plannings flex flex-column mt3">
-            <h3 class="ml3 mt3 ">Modifier votre Plannings commande</h3>
-            <div class="pln-cmd flex flex-column mb4">
-                <form id="planningsForm" action="./controler_in_planing_command/modifierplannings.php" method='POST'>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="mb-0">Bonjour </h2>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Modifier votre Plannings commande</h3>
+                    <form id="planningsForm" action="./controler_in_planing_command/modifierplannings.php" method='POST'>
+                        <input type="hidden" name="id" data-original="<?= $planningscommande['id'] ?>" value="<?= $planningscommande['id'] ?>">
+                        
+                        <div class="mb-3 row">
+                            <label class="col-sm-4 col-form-label">Plat</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="plat" data-original="<?= $planningscommande['plat'] ?>" value="<?= $planningscommande['plat'] ?>">
+                            </div>
+                        </div>
 
-                    <input type="hidden" name="id" data-original="<?= $planningscommande['id'] ?>" value="<?= $planningscommande['id'] ?>">
-                    <div class="plat flex justify-between gap-medium mb3">
-                        <span>Plat</span>
-                        <input type="text" name="plat" data-original="<?= $planningscommande['plat'] ?>" value="<?= $planningscommande['plat'] ?>">
-                    </div>
-                    <div class="Qte flex justify-between gap-medium mb3">
-                        <span>Quantite</span>
-                        <input type="number" name="quantite" data-original="<?= $planningscommande['quantite'] ?>" value="<?= $planningscommande['quantite'] ?>">
-                    </div>
-                    <div class="jourCommande flex  justify-between gap-medium mb3 ">
-                        <span>Jour de Commande</span>
+                        <div class="mb-3 row">
+                            <label class="col-sm-4 col-form-label">Quantite</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" name="quantite" data-original="<?= $planningscommande['quantite'] ?>" value="<?= $planningscommande['quantite'] ?>">
+                            </div>
+                        </div>
 
-                        <?php $jours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
-                        $joursSelectionnes = explode(',', $planningscommande['jourCommande']);
-                        foreach ($jours as $jour) {
-                            $checked = in_array($jour, $joursSelectionnes) ? 'checked' : '';
-                            $dataOriginal = in_array($jour, $joursSelectionnes) ? 'true' : 'false';
-                            echo "<label><input type='checkbox' name='jourCommande[]' data-original='$dataOriginal'  value='$jour' $checked> $jour</label><br>";
-                        } ?>
-                    </div>
-                    <div class="heure flex justify-between gap-medium mb3">
-                        <span>L'Heure</span>
-                        <input type="text" data-original="<?= $planningscommande['heure'] ?>" name="heure" value="<?= $planningscommande['heure'] ?>">
-                    </div>
-                    <div class="Prix flex justify-between gap-medium mb3">
-                        <span>Prix d'une Commande</span>
-                        <input type="number" data-original="<?= $planningscommande['prix'] ?>" name="prix" value="<?= $planningscommande['prix'] ?>">
-                    </div>
-                    <div class="button-pln-cmd flex gap-medium">
+                        <div class="mb-3 row">
+                            <label class="col-sm-4 col-form-label">Jour de Commande</label>
+                            <div class="col-sm-8">
+                                <?php 
+                                $jours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
+                                $joursSelectionnes = explode(',', $planningscommande['jourCommande']);
+                                foreach ($jours as $jour) {
+                                    $checked = in_array($jour, $joursSelectionnes) ? 'checked' : '';
+                                    $dataOriginal = in_array($jour, $joursSelectionnes) ? 'true' : 'false';
+                                    echo "<div class='form-check'>
+                                            <input class='form-check-input' type='checkbox' name='jourCommande[]' data-original='$dataOriginal' value='$jour' $checked id='$jour'>
+                                            <label class='form-check-label' for='$jour'>" . ucfirst($jour) . "</label>
+                                        </div>";
+                                } ?>
+                            </div>
+                        </div>
 
-                        <button type="submit" class="button-success">Enregistrer les modifications</button>
-                        <button type="button" class="button-secondary" onclick="resetForm()">Réinitialiser</button>
-                        <button type="button" class="button-danger" onclick="window.history.back()">Annuler</button>
+                        <div class="mb-3 row">
+                            <label class="col-sm-4 col-form-label">L'Heure</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="heure" data-original="<?= $planningscommande['heure'] ?>" value="<?= $planningscommande['heure'] ?>">
+                            </div>
+                        </div>
 
-                </form>
+                        <div class="mb-3 row">
+                            <label class="col-sm-4 col-form-label">Prix d'une Commande</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" name="prix" data-original="<?= $planningscommande['prix'] ?>" value="<?= $planningscommande['prix'] ?>">
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end">
+                            <button type="submit" class="btn btn-success">Enregistrer les modifications</button>
+                            <button type="button" class="btn btn-secondary" onclick="resetForm()">Réinitialiser</button>
+                            <button type="button" class="btn btn-danger" onclick="window.history.back()">Annuler</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
         </div>
     </div>
 </div>

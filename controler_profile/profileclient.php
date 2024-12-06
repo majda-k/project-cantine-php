@@ -89,58 +89,93 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
 
     <!-- fin menu -->
 
-    <div class="dashbord-content  ">
-        <!-- debut header -->
-        <div class="header">
-            <h2 class="ml1 mt0 p2">Bonjour </h2>
+    <div class="container py-4">
+    <div class="row mb-4">
+            <div class="col">
+                <h2 class="h3">Bonjour <?= $user['prenom'] . ' ' . $user['nom'] ?></h2>
+            </div>
         </div>
-        <!-- fin header -->
-        <div class="content4 ">
 
-            <div class="client-modifier ">
-                <div class="info-client flex  mt2 ">
-                    <form id="profileForm" action="http://localhost/project-cantine-php/controler_profile/profileclient.php" method="POST">
-                        <div class="prenom-client mr3">
-                            <input type="text" name="id" data-original="<?= $user['id'] ?>" value="<?= $user['id'] ?>" disabled>
-                            <input type="hidden" name="id" data-original="<?= $user['id'] ?>" value="<?= $user['id'] ?>">
-                        </div>
-                        <div class="prenom-client mr3">
-                            <p>prenom</p>
-                            <input type="text" name="prenom" data-original="<?= $user['prenom'] ?>" value="<?= $user['prenom'] ?>">
-                        </div>
-                        <div class="nom-client">
-                            <p>Nom</p>
-                            <input type="text" name="nom" data-original="<?= $user['nom'] ?>" value="<?= $user['nom'] ?>">
-                        </div>
-                        <div class="adr">
-                            <p>Adresse</p>
-                            <input type="text" name="Adresse" data-original="<?= $adresses['Adresse'] ?>" value="<?= $adresses['Adresse'] ?>">
-                        </div>
-                        <div class="numero">
-                            <p>Numero de Telephone</p>
-                            <input type="text" name="number" data-original="<?= $user['number'] ?>" value="<?= $user['number'] ?>">
-                        </div>
-                        <div class="motdepasse">
-                            <p>Mot de Passe</p>
-                            <input type="text" name="password" data-original="<?= $user['password'] ?>" value="<?= $user['password'] ?>">
-                        </div>
-                        <div class="email">
-                            <p>Email</p>
-                            <input type="text" name="email" data-original="<?= $user['email'] ?>" value="<?= $user['email'] ?>">
-                        </div>
-                        <input type="hidden" name="redirect" value="<?= $redirect ?>">
-                        <div class="button-client flex gap-medium m3">
-                            <button type="submit" class="button-success">Enregistrer les modifications</button>
-                            <button type="button" class="button-secondary" onclick="resetForm()">Réinitialiser</button>
-                            <button type="button" class="button-danger" onclick="window.history.back()">Annuler</button>
-                        </div>
+        <!-- Profile Form -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="profileForm" action="http://localhost/project-cantine-php/controler_profile/profileclient.php" method="POST">
+                            <div class="row g-3">
+                                <!-- ID Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">ID Client</label>
+                                        <input type="text" class="form-control" name="id" data-original="<?= $user['id'] ?>" value="<?= $user['id'] ?>" disabled>
+                                        <input type="hidden" name="id" data-original="<?= $user['id'] ?>" value="<?= $user['id'] ?>">
+                                    </div>
+                                </div>
 
-                    </form>
+                                <!-- Prenom Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Prénom</label>
+                                        <input type="text" class="form-control" name="prenom" data-original="<?= $user['prenom'] ?>" value="<?= $user['prenom'] ?>">
+                                    </div>
+                                </div>
+
+                                <!-- Nom Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Nom</label>
+                                        <input type="text" class="form-control" name="nom" data-original="<?= $user['nom'] ?>" value="<?= $user['nom'] ?>">
+                                    </div>
+                                </div>
+
+                                <!-- Adresse Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Adresse</label>
+                                        <input type="text" class="form-control" name="Adresse" data-original="<?= $adresses['Adresse'] ?>" value="<?= $adresses['Adresse'] ?>">
+                                    </div>
+                                </div>
+
+                                <!-- Numero Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Numéro de Téléphone</label>
+                                        <input type="text" class="form-control" name="number" data-original="<?= $user['number'] ?>" value="<?= $user['number'] ?>">
+                                    </div>
+                                </div>
+
+                                <!-- Password Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Mot de Passe</label>
+                                        <input type="password" class="form-control" name="password" data-original="<?= $user['password'] ?>" value="<?= $user['password'] ?>">
+                                    </div>
+                                </div>
+
+                                <!-- Email Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email" data-original="<?= $user['email'] ?>" value="<?= $user['email'] ?>">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="redirect" value="<?= $redirect ?>">
+
+                            <!-- Buttons -->
+                            <div class="d-flex gap-2 mt-4">
+                                <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                                <button type="button" class="btn btn-secondary" onclick="resetForm()">Réinitialiser</button>
+                                <button type="button" class="btn btn-danger" onclick="window.history.back()">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
 
 
     <script>

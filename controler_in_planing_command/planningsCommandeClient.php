@@ -1,129 +1,81 @@
 <?php
 include './connexion.php';
 
-
-
 $user_id = $_SESSION['user_id'] ? $_SESSION['user_id'] : null;
 $pdostat = $connexion->prepare('SELECT * FROM planningscommandeclients WHERE idClient = :id ');
 $pdostat->bindValue(':id', $user_id ,PDO::PARAM_INT) ;
 
 $executeisOk = $pdostat->execute();
-
-//recuperation des resultatsF
-
 $plannings = $pdostat->fetchAll();
-
-
-// var_dump($plannings);
-
 ?>
 
-
-<style>
-    table {
-        width: 95%;
-        border-collapse: collapse;
-        font-size: 20px;
-        text-align: center;
-      
-
-    }
-
-    th,
-    td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        width: 200px;
-
-    }
-
-    th {
-        background-color: #f4f4f4;
-        font-weight: bold;
-    }
-
-    tbody tr:nth-child(even) {
-        background-color: #f9f9f9;
-
-    }
-
-    tbody tr:hover {
-        background-color: #f1f1f1;
-
-    }
-
-    .table {
-        border-radius: 5px;
-        margin: 0px;
-    }
-</style>
-<div class="dashbord-content12 flex flex-column">
-    <!-- debut header -->
-    <div class="header">
-        <h2 class="ml1">Bonjour Majda</h2>
+<div class="container py-4">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="h3">Bonjour <?= $_SESSION['prenom'] ?? 'Client' ?></h2>
+        </div>
     </div>
-    <div class="content5 flex ">
-        <div class="creation flex flex-column mr3">
-            <form action="in_planing_command.php" method="POST">
-                <div class="creation-cmd flex justify-end ">
-                  <input type="hidden" name="user_id" value="<?= $user_id ?> ">
-                    <button class="ml6 mt3 button-success"
-                        type="submit"
-                        name="action"
-                        value="openCreateForm">creer votre plannings de commande</button>
-                </div>
-            </form>
-            <!-- debut tableau -->
 
-            <div class="table mt5 ">
+    <!-- Main Content -->
+    <div class="row">
+        <div class="col-12">
+            <!-- Create Planning Button -->
+            <div class="d-flex justify-content-end mb-4">
+                <form action="in_planing_command.php" method="POST">
+                    <input type="hidden" name="user_id" value="<?= $user_id ?>">
+                    <button class="btn btn-primary"
+                            type="submit"
+                            name="action"
+                            value="openCreateForm">
+                        Créer votre planning de commande
+                    </button>
+                </form>
+            </div>
 
-                <table>
-
-                    <thead>
-                        <tr class="font-sm">
-                            <th scope="col" class="f-w-b ">Plat</th>
-                            <th scope="col" class="f-w-b">Quantite</th>
-                            <th scope="col" class="f-w-b">jourCommande</th>
-                            <th scope="col" class="f-w-b">heure</th>
-                            <th scope="col" class="f-w-b">prix</th>
-                            <th scope="col p3" class="f-w-b">Status</th>
-                            <th scope="col p3" class="f-w-b">Action</th>
+            <!-- Planning Table -->
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle w-auto mx-auto">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-nowrap">Plat</th>
+                            <th class="text-nowrap">Quantité</th>
+                            <th class="text-nowrap">Jour Commande</th>
+                            <th class="text-nowrap">Heure</th>
+                            <th class="text-nowrap">Prix</th>
+                            <th class="text-nowrap">Status</th>
+                            <th class="text-nowrap">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
-
-                        <?php foreach ($plannings as $planning):  ?>
-
-                            <tr class="font-sm">
-
+                        <?php foreach ($plannings as $planning): ?>
+                            <tr>
                                 <td><?= $planning['plat'] ?></td>
                                 <td><?= $planning['quantite'] ?></td>
                                 <td><?= $planning['jourCommande'] ?></td>
                                 <td><?= $planning['heure'] ?></td>
                                 <td><?= $planning['prix'] ?></td>
-                                <td><?= $planning['status'] ?></td>
-                                <td class="flex justify-center">
-                                    <form action="in_planing_command.php" method="POST">
-                                        <input type="hidden" name="id" value="<?= $planning['id'] ?>">
-                                        <button type="submit" name="action" value="modifier" class="button-success mr2">Modifier</button>
-                                    </form>
-
-                                    <form action="in_planing_command.php" method="POST">
-                                        <input type="hidden" name="id" value="<?= $planning['id'] ?>">
-                                        <button type="submit" name="action" value="supprimer" class="button-danger">Supprimer</button>
-
-                                    </form>
+                                <td>
+                                    <span class="badge <?= $planning['status'] === 'En attente' ? 'bg-warning' : 
+                                        ($planning['status'] === 'Confirmé' ? 'bg-success' : 
+                                        ($planning['status'] === 'Annulé' ? 'bg-danger' : 'bg-secondary')) ?>">
+                                        <?= $planning['status'] ?>
+                                    </span>
                                 </td>
-                                </th>
-
-
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <form action="in_planing_command.php" method="POST">
+                                            <input type="hidden" name="id" value="<?= $planning['id'] ?>">
+                                            <button type="submit" name="action" value="modifier" class="btn btn-sm btn-primary">Modifier</button>
+                                        </form>
+                                        <form action="in_planing_command.php" method="POST">
+                                            <input type="hidden" name="id" value="<?= $planning['id'] ?>">
+                                            <button type="submit" name="action" value="supprimer" class="btn btn-sm btn-danger">Supprimer</button>
+                                        </form>
+                                    </div>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
-
-
-
-
                     </tbody>
                 </table>
             </div>

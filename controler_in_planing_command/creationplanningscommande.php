@@ -46,64 +46,132 @@
         }
 
     ?>
-      <div class="dashbord-content12 flex flex-column">
-          <div class="header">
-              <h2 class="ml1">Bonjour Majda</h2>
+      <div class="container py-4">
+          <!-- Header -->
+          <div class="row mb-4">
+              <div class="col">
+                  <h2 class="h3">Bonjour <?= $_SESSION['prenom'] ?? 'Client' ?></h2>
+              </div>
           </div>
-          <div class="content6 flex justify-center mb3 ">
-              <div class="plannings flex flex-column mt3">
 
-                  <h3 class="ml3 mt3 ">Creer votre Plannings commande</h3>
-                  <div class="pln-cmd flex flex-column mb4">
-                      <form action="/project-cantine-php/controler_in_planing_command/creationplanningscommande.php" method='POST'>
-                          <div class="plat flex justify-between gap-medium mb3">
-                              <span>Id client</span>
-                              <input type="text" name="idClient" value="<?php echo ($userrole !== 'admin') ? $user_id : ''; ?>" placeholder="Choississezvotre plat ?" <?php echo ($userrole !== 'admin') ? 'disabled' : ''; ?>>
-                          </div>
-                          <div class="plat flex justify-between gap-medium mb3">
-                              <span>Plat</span>
-                              <input type="text" name="plat" placeholder="Choississezvotre plat ?">
-                          </div>
+          <!-- Main Content -->
+          <div class="row justify-content-center">
+              <div class="col-md-8">
+                  <div class="card">
+                      <div class="card-header">
+                          <h3 class="card-title mb-0">Créer votre Planning de commande</h3>
+                      </div>
+                      <div class="card-body">
+                          <form action="/project-cantine-php/controler_in_planing_command/creationplanningscommande.php" method="POST">
+                              <!-- ID Client -->
+                              <div class="mb-3">
+                                  <label class="form-label">ID Client</label>
+                                  <input type="text" class="form-control" name="idClient"
+                                      value="<?php echo ($userrole !== 'admin') ? $user_id : ''; ?>"
+                                      placeholder="ID Client"
+                                      <?php echo ($userrole !== 'admin') ? 'disabled' : ''; ?>>
+                              </div>
 
-                          <div class="plat flex justify-between gap-medium mb3">
-                              <span>Quantite</span>
-                              <input type="text" name="quantite" placeholder="Quelle Quantite choisissez-vous ?">
-                          </div>
-                          <div class="jourCommande flex  justify-between gap-medium mb3 ">
-                              <span>Jour de Commande</span>
-                              <label><input type="checkbox" name="jourCommande[]" value="lundi"> Lundi</label><br>
-                              <label><input type="checkbox" name="jourCommande[]" value="mardi"> Mardi</label><br>
-                              <label><input type="checkbox" name="jourCommande[]" value="mercredi"> Mercredi</label><br>
-                              <label><input type="checkbox" name="jourCommande[]" value="jeudi"> Jeudi</label><br>
-                              <label><input type="checkbox" name="jourCommande[]" value="vendredi"> Vendredi</label><br>
-                              <label><input type="checkbox" name="jourCommande[]" value="samedi"> Samedi</label><br>
-                              <label><input type="checkbox" name="jourCommande[]" value="dimanche"> Dimanche</label><br>
-                          </div>
-                          <div class="heure flex justify-between gap-medium mb3">
-                              <span>L'Heure</span>
-                              <input type="text" name="heure" placeholder="Quelle heure voulez-vous votre commande ?">
-                          </div>
-                          <div class="Prix flex justify-between gap-medium mb3">
-                              <span>Prix d'une Commande</span>
-                              <input type="text" name="prix" value="26 MAD">
-                          </div>
-                          <div class="button-pln-cmd flex justify-between">
+                              <!-- Plat -->
+                              <div class="mb-3">
+                                  <label class="form-label">Plat</label>
+                                  <input type="text" class="form-control" name="plat" placeholder="Choisissez votre plat">
+                              </div>
+
+                              <!-- Quantité -->
+                              <div class="mb-3">
+                                  <label class="form-label">Quantité</label>
+                                  <input type="number" class="form-control" name="quantite" placeholder="Quelle quantité choisissez-vous ?">
+                              </div>
+
+                              <!-- Jour de Commande -->
+                              <div class="mb-3">
+                                  <label class="form-label">Jour de Commande</label>
+                                  <div class="row row-cols-2 row-cols-md-3 g-3">
+                                      <div class="col">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="jourCommande[]" value="lundi" id="lundi">
+                                              <label class="form-check-label" for="lundi">Lundi</label>
+                                          </div>
+                                      </div>
+                                      <div class="col">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="jourCommande[]" value="mardi" id="mardi">
+                                              <label class="form-check-label" for="mardi">Mardi</label>
+                                          </div>
+                                      </div>
+                                      <div class="col">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="jourCommande[]" value="mercredi" id="mercredi">
+                                              <label class="form-check-label" for="mercredi">Mercredi</label>
+                                          </div>
+                                      </div>
+                                      <div class="col">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="jourCommande[]" value="jeudi" id="jeudi">
+                                              <label class="form-check-label" for="jeudi">Jeudi</label>
+                                          </div>
+                                      </div>
+                                      <div class="col">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="jourCommande[]" value="vendredi" id="vendredi">
+                                              <label class="form-check-label" for="vendredi">Vendredi</label>
+                                          </div>
+                                      </div>
+                                      <div class="col">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="jourCommande[]" value="samedi" id="samedi">
+                                              <label class="form-check-label" for="samedi">Samedi</label>
+                                          </div>
+                                      </div>
+                                      <div class="col">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="jourCommande[]" value="dimanche" id="dimanche">
+                                              <label class="form-check-label" for="dimanche">Dimanche</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <!-- Heure -->
+                              <div class="mb-3">
+                                  <label class="form-label">Heure</label>
+                                  <input type="time" class="form-control" name="heure" placeholder="Quelle heure voulez-vous votre commande ?">
+                              </div>
+
+                              <!-- Prix -->
+                              <div class="mb-3">
+                                  <label class="form-label">Prix d'une Commande (MAD)</label>
+                                  <div class="input-group">
+                                      <input type="number"
+                                          class="form-control"
+                                          name="prix"
+                                          value="26"
+                                          min="0"
+                                          step="0.5"
+                                          required>
+                                      <span class="input-group-text">MAD</span>
+                                  </div>
+                              </div>
+
                               <input type="hidden" name="idClient" value="<?= $user_id ?>" />
-                              <button type="submit" class="button-success">Creer</button>
-                      </form>
-                      <!-- <form> -->
-                      <form action="" method="post">
-                          <button type="button" class="button-danger" onclick="window.history.back()">Annuler</button>
-                      </form>
-                      </form>
+
+                              <!-- Buttons -->
+                              <div class="d-flex gap-2">
+                                  <button type="submit" class="btn btn-primary">Créer</button>
+                                  <button type="button" class="btn btn-danger" onclick="window.history.back()">Annuler</button>
+                              </div>
+                          </form>
+                      </div>
                   </div>
               </div>
           </div>
-      <?php
+      </div>
+  <?php
 
     } else {
         echo "this method not suported yet";
     }
 
 
-        ?>
+    ?>
