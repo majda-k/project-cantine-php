@@ -1,6 +1,6 @@
 <?php
 
-include '../connexion.php';
+
 
 if (isset($_POST['user_id'])) {
     // Récupération de l'ID à supprimer
