@@ -23,7 +23,7 @@ $users = $pdostat->fetchAll();
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover table-striped align-middle w-auto mx-auto">
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col">ID</th>
@@ -49,8 +49,8 @@ $users = $pdostat->fetchAll();
                                                 <form action="in_listClient.php" method="POST" class="me-2">
                                                     <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
                                                     <input type="hidden" name="redirect" value="in_listClient.php">
-                                                    <button type="submit" name="action" value="openUserProfile" 
-                                                            class="btn btn-primary btn-sm">
+                                                    <button type="submit" name="action" value="openUserProfile"
+                                                        class="btn btn-primary btn-sm">
                                                         <i class="fas fa-edit"></i> Modifier
                                                     </button>
                                                 </form>
@@ -58,9 +58,9 @@ $users = $pdostat->fetchAll();
                                                 <form action="in_listClient.php" method="POST">
                                                     <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
                                                     <input type="hidden" name="redirect" value="in_listClient.php">
-                                                    <button type="submit" name="action" value="deleteUser" 
-                                                            class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client ?');">
+                                                    <button type="submit" name="action" value="deleteUser"
+                                                        class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client ?');">
                                                         <i class="fas fa-trash"></i> Supprimer
                                                     </button>
                                                 </form>

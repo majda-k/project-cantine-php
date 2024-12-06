@@ -1,444 +1,103 @@
-<div class="dashbord-content flex flex-column">
-  <!-- debut header -->
-  <div class="header">
-    <h2 class="ml1">Bonjour Majda</h2>
-  </div>
-  <!-- fin header -->
-  <div class="content flex flex-row">
-    <!-- debut side left -->
-    <div class="side-l flex flex-column justify-center">
-      <h3 class="ml1">les dernieres plannings commande des clients</h3>
-
-      <!-- debut sideleft 1  -->
-      <div class="side-l-1 flex flex-column">
-        <div class="flex flex-row">
-          <div class="plan1 ml2 mt2 pt1">
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Client</span>
-              <span>Amira Kadouri</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>ID</span>
-              <span>1234</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Plat</span>
-              <span>Burger Chicken</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Quantite</span>
-              <span>6</span>
-            </div>
-            <div
-              class="pln1-info except flex flex-column mb5 flex justify-between mr1 ml1 font-xs pb1">
-              <div class="pln1-jours">
-                <span class="attribute-key">Jour de Commande</span>
-              </div>
-
-              <div class="jours flex">
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Lun</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Mar</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Mer</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Jeu</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Ven</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Sam</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Dim</p>
-                </div>
-              </div>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>L'Heure</span>
-              <span>12h45</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Prix Dune Commande</span>
-              <span>26 MAD</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Creer en</span>
-              <span>09/09/2021 -12h00</span>
-            </div>
-          </div>
-          <div class="plan1 ml2 mt2 pt1">
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Client</span>
-              <span>Amira Kadouri</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>ID</span>
-              <span>1234</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Plat</span>
-              <span>Burger Chicken</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Quantite</span>
-              <span>6</span>
-            </div>
-            <div
-              class="pln1-info except flex flex-column mb5 flex justify-between mr1 ml1 font-xs">
-              <div class="pln1-jours">
-                <span class="attribute-key">Jour de Commande</span>
-              </div>
-
-              <div class="jours flex">
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Lun</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Mar</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Mer</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Jeu</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Ven</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Sam</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Dim</p>
-                </div>
-              </div>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>L'Heure</span>
-              <span>12h45</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Prix Dune Commande</span>
-              <span>26 MAD</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Creer en</span>
-              <span>09/09/2021 -12h00</span>
-            </div>
-          </div>
-          <div class="plan1 ml2 mt2 pt1">
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Client</span>
-              <span>Amira Kadouri</span>
-            </div>
-            <div class="pln1-info flex -between mr1 ml1 font-xs">
-              <span>ID</span>
-              <span>1234</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Plat</span>
-              <span>Burger Chicken</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Quantite</span>
-              <span>6</span>
-            </div>
-            <div
-              class="pln1-info except flex flex-column mb5 flex justify-between mr1 ml1 font-xs">
-              <div class="pln1-jours">
-                <span class="attribute-key">Jour de Commande</span>
-              </div>
-
-              <div class="jours flex">
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Lun</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Mar</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Mer</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Jeu</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Ven</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Sam</p>
-                </div>
-                <div class="radio ml1">
-                  <input type="radio" />
-                  <p>Dim</p>
-                </div>
-              </div>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>L'Heure</span>
-              <span>12h45</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Prix Dune Commande</span>
-              <span>26 MAD</span>
-            </div>
-            <div class="pln1-info flex justify-between mr1 ml1 font-xs">
-              <span>Creer en</span>
-              <span>09/09/2021 -12h00</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex mt1 pl0">
-          <input
-            class="rad-10 font-xs p1 f-w-b ml2"
-            type="submit"
-            name="seemore"
-            value="See More" />
-        </div>
-      </div>
-
-      <!-- debut side left 2  -->
-      <div class="side-l-2">
-        <h3 class="ml1">Plats populaires</h3>
-        <div class="classes flex flex-row p1">
-          <div class="classe1 flex flex-column ml1 rad-10">
-            <div class="img-cl1">
-              <img class="rad-10" src="images/burger-img.jpg" alt="" />
-            </div>
-            <div class="info-cl1 font-sm ml1 mr1 mt1">
-              <div class="name flex justify-between mb1">
-                <span class="f-w-b">Nom</span>
-                <span>Burger Chicken</span>
-              </div>
-              <div class="prix flex justify-between mb1">
-                <span class="f-w-b">Prix</span>
-                <span>16 MAD</span>
-              </div>
-              <div class="name flex justify-between mb1">
-                <span class="f-w-b">Avis Client</span>
-                <span class="ml1">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </span>
-              </div>
-              <input
-                type="submit"
-                name="read"
-                value="read more details"
-                class="mt1 rad-10 p1 font-xs f-w-b" />
-            </div>
-          </div>
-          <div class="classe1 flex flex-column ml1 rad-10">
-            <div class="img-cl1">
-              <img class="rad-10" src="images/pzza.img" alt="" />
-            </div>
-            <div class="info-cl1 font-sm ml1 mr1 mt1">
-              <div class="name flex justify-between mb1">
-                <span class="f-w-b">Nom</span>
-                <span>Burger Chicken</span>
-              </div>
-              <div class="prix flex justify-between mb1">
-                <span class="f-w-b">Prix</span>
-                <span>16 MAD</span>
-              </div>
-              <div class="name flex justify-between mb1">
-                <span class="f-w-b">Avis Client</span>
-                <span class="ml1">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </span>
-              </div>
-              <input
-                type="submit"
-                name="read"
-                value="read more details"
-                class="mt1 rad-10 p1 font-xs f-w-b" />
-            </div>
-          </div>
-          <div class="classe1 flex flex-column ml1 rad-10">
-            <div class="img-cl1">
-              <img
-                class="rad-10"
-                src="images/burgercheese-img.jpg"
-                alt="" />
-            </div>
-            <div class="info-cl1 font-sm ml1 mr1 mt1">
-              <div class="name flex justify-between mb1">
-                <span class="f-w-b">Nom</span>
-                <span>Burger Chicken</span>
-              </div>
-              <div class="prix flex justify-between mb1">
-                <span class="f-w-b">Prix</span>
-                <span>16 MAD</span>
-              </div>
-              <div class="name flex justify-between mb1">
-                <span class="f-w-b">Avis Client</span>
-                <span class="ml1">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </span>
-              </div>
-              <input
-                type="submit"
-                name="read"
-                value="read more details"
-                class="mt1 rad-10 p1 font-xs f-w-b" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--fin side left 2 -->
-      <!-- fin side left -->
+<!-- Start of Dashboard -->
+<div class="container-fluid d-flex flex-column" style="min-height: 100vh;">
+  <!-- Header -->
+  <div class="row mb-4">
+    <div class="col">
+      <h2 class="h3">Bonjour <?= $_SESSION['prenom'] ?? 'Admin' ?></h2>
     </div>
-    <!-- debut side right  -->
-    <div class="side-r">
-      <!-- debut side right 1 -->
-      <div class="side-r-1">
-        <h3 class="p1 ml2">Les Derniers Commandes</h3>
-        <div class="commandes flex flex-column ml6">
-          <div class="commande1 flex flex-row ml3 mt1 rad-10 p1">
-            <div class="img-com">
-              <img
-                src="images/burger-img.jpg"
-                alt=""
-                class="rad-10 mt1 ml1" />
-            </div>
-            <div class="info-com rad-10">
-              <div class="inf1 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Client</span>
-                <span class="ml2 mt1 font-sm">Amira Kadouri</span>
-              </div>
-              <div class="inf1 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Date</span>
-                <span class="ml2 mt1 font-sm">09/09/2024-12h00</span>
-              </div>
-              <div class="inf2 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Plat</span>
-                <span class="ml2 mt1 font-sm">Burger Chicken</span>
-              </div>
-              <div class="inf3 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Etat de Commande</span>
-                <span class="ml2 mt1 font-sm">Complete</span>
-              </div>
-              <div class="inf4 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Quantite</span>
-                <span class="ml2 mt1 font-sm">6</span>
-              </div>
-              <div class="inf5 flex justify-end mr6">
-                <span class="ml2 mt1 font-sm f-w-b">16 MAD</span>
-              </div>
-            </div>
-          </div>
-          <div class="commande1 flex flex-row ml3 mt1 rad-10 p1">
-            <div class="img-com">
-              <img src="images/pzza.img" alt="" class="rad-10 mt1 ml1" />
-            </div>
-            <div class="info-com rad-10">
-              <div class="inf1 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Client</span>
-                <span class="ml2 mt1 font-sm">Amira Kadouri</span>
-              </div>
-              <div class="inf1 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Date</span>
-                <span class="ml2 mt1 font-sm">09/09/2024-12h00</span>
-              </div>
-              <div class="inf2 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Plat</span>
-                <span class="ml2 mt1 font-sm">Pizza Margarita</span>
-              </div>
-              <div class="inf3 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Etat de Commande</span>
-                <span class="ml2 mt1 font-sm">Complete</span>
-              </div>
-              <div class="inf4 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Quantite</span>
-                <span class="ml2 mt1 font-sm">6</span>
-              </div>
-              <div class="inf5 flex justify-end mr6">
-                <span class="ml2 mt1 font-sm f-w-b">26 MAD</span>
-              </div>
-            </div>
-          </div>
-          <div class="commande1 flex flex-row ml3 mt1 rad-10 p1">
-            <div class="img-com">
-              <img
-                src="images/burgercheese-img.jpg"
-                alt=""
-                class="rad-10 mt1 ml1" />
-            </div>
-            <div class="info-com rad-10">
-              <div class="inf1 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Client</span>
-                <span class="ml2 mt1 font-sm">Amira Kadouri</span>
-              </div>
-              <div class="inf1 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Date</span>
-                <span class="ml2 mt1 font-sm">09/09/2024-12h00</span>
-              </div>
-              <div class="inf2 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Plat</span>
-                <span class="ml2 mt1 font-sm">Burger Cheese</span>
-              </div>
-              <div class="inf3 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Etat de Commande</span>
-                <span class="ml2 mt1 font-sm">Complete</span>
-              </div>
-              <div class="inf4 flex flex-row justify-between mr6">
-                <span class="ml2 mt1 font-sm f-w-b">Quantite</span>
-                <span class="ml2 mt1 font-sm">6</span>
-              </div>
-              <div class="inf5 flex justify-end mr6">
-                <span class="ml2 mt1 font-sm f-w-b">20 MAD</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="see">
-          <input
-            class="rad-10 font-xs p1 f-w-b ml2 mt3 ml5"
-            type="submit"
-            name="seemore"
-            value="See More" />
-        </div>
-      </div>
-      <!--fin side right 1 -->
+  </div>
 
+  <!-- Main Content -->
+  <div class="row flex-grow-1">
+    <!-- Left Section -->
+    <div class="col-md-8">
+      <!-- Planning Cards -->
+      <section class="mb-4" style="background-color: #f4f4f4; padding: 20px; border-radius: 8px; min-height: 300px;">
+        <h3 class="mb-4">Les Derniers Plannings Commande</h3>
+        <div class="row g-2">
+          <?php for ($i = 0; $i < 3; $i++) : ?>
+            <div class="col-md-4">
+              <div class="card shadow-lg rounded-3" style="border: 1px solid #ddd; max-height: 200px; overflow: hidden;">
+                <div class="card-body p-3">
+                  <h5 class="card-title mb-2">Commande #1234</h5>
+                  <p class="mb-1"><strong>Plat:</strong> Burger Chicken</p>
+                  <p class="mb-1"><strong>Quantité:</strong> 6</p>
+                  <p class="mb-1"><strong>Jour de Commande:</strong></p>
+                  <div class="d-flex flex-wrap mb-2">
+                    <?php foreach (['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'] as $jour) : ?>
+                      <div class="form-check me-1">
+                        <input class="form-check-input" type="radio" name="jour" id="jour<?= $jour ?>" />
+                        <label class="form-check-label" for="jour<?= $jour ?>"><?= $jour ?></label>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+                  <p class="mb-1"><strong>L'Heure:</strong> 12h45</p>
+                  <p class="mb-1"><strong>Prix d'une Commande:</strong> 26 MAD</p>
+                  <p><strong>Créé en:</strong> 09/09/2021 - 12h00</p>
+                </div>
+              </div>
+            </div>
+          <?php endfor; ?>
+        </div>
+        <button class="btn btn-primary mt-2">Voir Plus</button>
+      </section>
+
+      <!-- Popular Dishes -->
+      <section class="bg-light p-4 rounded" style="background-color: #d1f2d1; min-height: 200px;">
+        <h3 class="mb-3">Plats Populaires</h3>
+        <div class="row g-3">
+          <?php foreach (['burger-img.jpg', 'pzza.img', 'burgercheese-img.jpg'] as $image) : ?>
+            <div class="col-md-4">
+              <div class="card shadow-sm">
+                <img src="images/<?= $image ?>" class="card-img-top" alt="Plat populaire">
+                <div class="card-body text-center">
+                  <h5>Burger Chicken</h5>
+                  <p><strong>Prix:</strong> 16 MAD</p>
+                  <p><strong>Avis Client:</strong></p>
+                  <p>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </p>
+                  <button class="btn btn-outline-primary btn-sm">Détails</button>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right Section -->
+    <div class="col-md-4">
+      <!-- Recent Orders -->
+      <section class="mb-4 h-100 d-flex flex-column" style="background-color: #f7d7b3; padding: 20px; border-radius: 8px;">
+        <h3 class="text-secondary mb-4">Les Dernières Commandes</h3>
+        <div class="flex-grow-1">
+          <?php foreach (['burger-img.jpg', 'pzza.img', 'burgercheese-img.jpg'] as $image) : ?>
+            <div class="card mb-3 shadow-sm" style="max-height: 200px; overflow: hidden;">
+              <div class="row g-0">
+                <div class="col-4">
+                  <img src="images/<?= $image ?>" class="img-fluid rounded-start" alt="Commande Image">
+                </div>
+                <div class="col-8">
+                  <div class="card-body p-3">
+                    <p class="card-text mb-1"><strong>Date:</strong> 09/09/2024 - 12h00</p>
+                    <p class="card-text mb-1"><strong>Plat:</strong> Burger Chicken</p>
+                    <p class="card-text mb-1"><strong>État:</strong> Complète</p>
+                    <p class="card-text mb-1"><strong>Quantité:</strong> 6</p>
+                    <p class="card-text"><strong>Prix:</strong> 26 MAD</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+        <button class="btn btn-primary">Voir Plus</button>
+      </section>
     </div>
   </div>
 </div>
+<!-- End of Dashboard -->

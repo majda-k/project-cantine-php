@@ -8,55 +8,65 @@ $pdostat->execute();
 $plat = $pdostat->fetch();
 ?>
 
-<div class="dashbord-content12 flex flex-column">
-  <!-- debut header -->
-  <div class="header">
-    <h2 class="ml1">Bonjour Majda</h2>
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="h3">Bonjour <?= $_SESSION['prenom'] ?? 'Admin' ?></h2>
+        </div>
+    </div>
+
+  <!-- Plat Name -->
+  <div class="text-center mb-4">
+    <h3 class="fw-bold">Nom Plat:</h3>
+    <p class="text-secondary"><?= $plat['nomPlat'] ?></p>
   </div>
-  <!-- fin header -->
-  <div class="content12 flex flex-column">
 
-    <div class="plat-name flex justify-center mt3 font-xl">
+  <!-- Images Section -->
+  <div class="row justify-content-center mb-4">
+    <?php for ($i = 0; $i < 3; $i++): ?>
+      <div class="col-4 col-md-3 mb-3">
+        <img src="<?= $plat['imagePlat'] ?>" class="img-fluid rounded shadow-sm" alt="Plat Image">
+      </div>
+    <?php endfor; ?>
+  </div>
 
-      <span class="f-w-b mr1">Nom Plat :</span>
-      <span><?= $plat['nomPlat'] ?></span>
-    </div>
-    <div class="images-plat flex justify-center gap-small mt3">
-      <img src="<?= $plat['imagePlat'] ?>" alt="" />
-      <img src="<?= $plat['imagePlat'] ?>" alt="" />
-      <img src="<?= $plat['imagePlat'] ?>" alt="" />
-    </div>
-    <div class="plat-description ml6 mt6 p2">
-      <h4>Description</h4>
-      <p>
+  <!-- Description Section -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4 class="card-title text-primary">Description</h4>
+      <p class="card-text">
         <?= $plat['descriptionPlat'] ?>
       </p>
-      <p>
+      <p class="card-text">
         Nos Chefs de cuisines, à travers une
         palette d’excellents produits, vous feront
-        plonger dans un univers de gout et de
-        saveurs, orientés et coachés par nos
+        plonger dans un univers de goût et de
+        saveurs. Orientés et coachés par nos
         partenaires nutritionnistes, vous
         garantissant au-delà de la variété, un
         équilibre alimentaire.
-
       </p>
-      <div class="avis flex justify-between gap-small">
-        <span>Avis Client</span>
-        <span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-        </span>
-      </div>
-      <div class="Ecrire-avis flex justify-end mt2">
-        <input
-          type="text"
-          name="Avis"
-          value="Ecrire votre Avis"
-          class="button-danger t-center" />
-      </div>
     </div>
   </div>
+
+  <!-- Client Reviews Section -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <span class="fw-bold">Avis Client:</span>
+    <div>
+      <?php for ($i = 0; $i < 5; $i++): ?>
+        <i class="fa-solid fa-star text-warning"></i>
+      <?php endfor; ?>
+    </div>
+  </div>
+
+  <!-- Write a Review Section -->
+  <div class="text-end">
+    <input
+      type="text"
+      name="Avis"
+      placeholder="Écrire votre Avis"
+      class="form-control w-50 d-inline-block me-2" />
+    <button class="btn btn-primary">Envoyer</button>
+  </div>
+</div>

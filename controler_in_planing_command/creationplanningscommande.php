@@ -41,6 +41,9 @@
         }
     } else if (isset($_POST['action'])) {
         $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+        //get all client for setting them in the form select
+        //get all plat for setting them in the form select
+
         if (isset($_POST['user_id'])) {
             $user_id = $_POST["user_id"];
         }
@@ -64,6 +67,7 @@
                       <div class="card-body">
                           <form action="/project-cantine-php/controler_in_planing_command/creationplanningscommande.php" method="POST">
                               <!-- ID Client -->
+                            <!-- this shoud be select for admin-->
                               <div class="mb-3">
                                   <label class="form-label">ID Client</label>
                                   <input type="text" class="form-control" name="idClient"
@@ -73,6 +77,7 @@
                               </div>
 
                               <!-- Plat -->
+                               <!-- this shoud be select -->
                               <div class="mb-3">
                                   <label class="form-label">Plat</label>
                                   <input type="text" class="form-control" name="plat" placeholder="Choisissez votre plat">

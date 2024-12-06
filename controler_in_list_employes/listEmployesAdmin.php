@@ -21,9 +21,9 @@ $users = $pdostat->fetchAll();
                     <h3 class="card-title mb-0">Liste des Employés</h3>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead class="table-light">
+                <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle w-auto mx-auto">
+                    <thead class="table-light">
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Nom</th>
