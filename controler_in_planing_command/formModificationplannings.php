@@ -26,7 +26,22 @@ if (isset($_POST['action'])) {
                 <div class="card-body">
                     <h3 class="card-title mb-4">Modifier votre Plannings commande</h3>
                     <form id="planningsForm" action="./controler_in_planing_command/modifierplannings.php" method='POST'>
-                        <input type="hidden" name="id" data-original="<?= $planningscommande['id'] ?>" value="<?= $planningscommande['id'] ?>">
+                        
+                        <div class="mb-3 row">
+                            <label class="col-sm-4 col-form-label">planning id</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" disabled value="<?= $planningscommande['id'] ?>">
+                                <input type="hidden" name="id" data-original="<?= $planningscommande['id'] ?>" value="<?= $planningscommande['id'] ?>">
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-sm-4 col-form-label">cleint id</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" disabled value="<?= $planningscommande['idClient'] ?>">
+                            </div>
+                        </div>
 
                         <div class="mb-3 row">
                             <label class="col-sm-4 col-form-label">Plat</label>
@@ -49,18 +64,20 @@ if (isset($_POST['action'])) {
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
+                        <div class="mb-3">
                             <label class="col-sm-4 col-form-label">Jour de Commande</label>
-                            <div class="col-sm-8">
+                            <div class="row row-cols-2 row-cols-md-3 g-3 " style="padding-left: 35%;">
                                 <?php
                                 $jours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
                                 $joursSelectionnes = explode(',', $planningscommande['jourCommande']);
                                 foreach ($jours as $jour) {
                                     $checked = in_array($jour, $joursSelectionnes) ? 'checked' : '';
                                     $dataOriginal = in_array($jour, $joursSelectionnes) ? 'true' : 'false';
-                                    echo "<div class='form-check'>
-                                            <input class='form-check-input' type='checkbox' name='jourCommande[]' data-original='$dataOriginal' value='$jour' $checked id='$jour'>
-                                            <label class='form-check-label' for='$jour'>" . ucfirst($jour) . "</label>
+                                    echo "<div class='col'>
+                                            <div class='form-check'>
+                                                <input class='form-check-input' type='checkbox' name='jourCommande[]' data-original='$dataOriginal' value='$jour' $checked id='$jour'>
+                                                <label class='form-check-label' for='$jour'>" . ucfirst($jour) . "</label>
+                                            </div>
                                         </div>";
                                 } ?>
                             </div>
