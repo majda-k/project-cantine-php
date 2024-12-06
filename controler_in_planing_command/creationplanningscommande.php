@@ -18,13 +18,13 @@
 
             $pdostat = $connexion->prepare('
                INSERT INTO planningscommandeclients 
-                    (plat, quantite, jourCommande, heure, prix, idClient) 
-                    VALUES (:plat, :quantite, :jourCommande, :heure, :prix, :idClient)
+                    (id_plat, quantite, jourCommande, heure, prix, idClient) 
+                    VALUES (:id_plat, :quantite, :jourCommande, :heure, :prix, :idClient)
                 ');
 
             //on relie chaque requete a la valeur 
 
-            $pdostat->bindValue(':plat', trim($plat), PDO::PARAM_STR);
+            $pdostat->bindValue(':id_plat', trim($plat), PDO::PARAM_INT);
             $pdostat->bindValue(':quantite', $quantite, PDO::PARAM_INT);
             $pdostat->bindValue(':jourCommande', trim($jourCommande), PDO::PARAM_STR);
             $pdostat->bindValue(':heure', trim($heure), PDO::PARAM_STR);
@@ -41,12 +41,24 @@
         }
     } else if (isset($_POST['action'])) {
         $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
-        //get all client for setting them in the form select
-        //get all plat for setting them in the form select
+
+        include "./connexion.php";
 
         if (isset($_POST['user_id'])) {
             $user_id = $_POST["user_id"];
         }
+
+        //get all client for setting them in the form select
+        if ($userRole === 'admin') {
+            $pdostat = $connexion->prepare("SELECT id , nom FROM users WHERE role = 'client'");
+            $pdostat->execute();
+            $users = $pdostat->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+
+        $pdostat = $connexion->prepare("SELECT * FROM plat ");
+        $pdostat->execute();
+        $plats = $pdostat->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
       <div class="container py-4">
@@ -67,20 +79,37 @@
                       <div class="card-body">
                           <form action="/project-cantine-php/controler_in_planing_command/creationplanningscommande.php" method="POST">
                               <!-- ID Client -->
-                            <!-- this shoud be select for admin-->
+                              <!-- this shoud be select for admin-->
                               <div class="mb-3">
-                                  <label class="form-label">ID Client</label>
-                                  <input type="text" class="form-control" name="idClient"
-                                      value="<?php echo ($userrole !== 'admin') ? $user_id : ''; ?>"
-                                      placeholder="ID Client"
-                                      <?php echo ($userrole !== 'admin') ? 'disabled' : ''; ?>>
-                              </div>
+                                  <label for="idClient" class="mb2 form-label">ID Client</label>
 
+                                  <?php
+                                    if ($userRole === 'admin') { ?>
+                                      <select class="form-select" aria-label="Default select example" name="idClient">
+                                          <option selected>Choisissez votre id Client</option>
+                                          <?php foreach ($users as $user) : ?>
+                                              <option value="<?php echo $user['id'] ?>">
+                                                  <?php echo $user['id'] . "-" . $user['nom']; ?>
+                                              </option>
+                                          <?php endforeach; ?>
+                                      </select>
+                                  <?php } else { ?>
+                                      <input type="text" class="form-control" value="<?php echo $user_id; ?>" disabled>
+                                      <input type="hidden" name="idClient" value="<?php echo $user_id; ?>">
+
+                                  <?php }
+                                    ?>
+                              </div>
                               <!-- Plat -->
-                               <!-- this shoud be select -->
+                              <!-- this shoud be select -->
                               <div class="mb-3">
-                                  <label class="form-label">Plat</label>
-                                  <input type="text" class="form-control" name="plat" placeholder="Choisissez votre plat">
+                                  <label for="nomPlat" class="form-label">Plat</label>
+                                  <select class="form-select" aria-label="Default select example" name="plat">
+                                      <option selected>Choisissez votre Plat</option>
+                                      <?php foreach ($plats as $plat) : ?>
+                                          <option value="<?php echo $plat['Id']; ?>"><?php echo  $plat['nomPlat']; ?></option>
+                                      <?php endforeach; ?>
+                                  </select>
                               </div>
 
                               <!-- Quantité -->
@@ -151,16 +180,12 @@
                                       <input type="number"
                                           class="form-control"
                                           name="prix"
-                                          value="26"
                                           min="0"
                                           step="0.5"
                                           required>
                                       <span class="input-group-text">MAD</span>
                                   </div>
                               </div>
-
-                              <input type="hidden" name="idClient" value="<?= $user_id ?>" />
-
                               <!-- Buttons -->
                               <div class="d-flex gap-2">
                                   <button type="submit" class="btn btn-primary">Créer</button>

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Préparation de la requête d'UPDATE
         $pdostat = $connexion->prepare('UPDATE planningscommandeclients 
-            SET plat = :plat, 
+            SET id_plat = :id_plat, 
                 quantite = :quantite, 
                 jourCommande = :jourCommande, 
                 heure = :heure, 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Liaison des valeurs
         $pdostat->bindValue(':id', $id, PDO::PARAM_INT);
-        $pdostat->bindValue(':plat', $plat, PDO::PARAM_STR);
+        $pdostat->bindValue(':id_plat', $plat, PDO::PARAM_STR);
         $pdostat->bindValue(':quantite', $quantite, PDO::PARAM_INT);
         $pdostat->bindValue(':jourCommande', $jourCommande, PDO::PARAM_STR);
         $pdostat->bindValue(':heure', $heure, PDO::PARAM_STR);

@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
         </div>
         <div class="mb-3">
             <label for="prixPlat" class="form-label fw-bold">Prix du Plat</label>
-            <input type="number" id="prixPlat" name="prixPlat" class="form-control" value="<?= $platedit['prixPlat'] ?? ''; ?>" placeholder="Prix du plat" required>
+            <input type="number" id="prixPlat" name="prixPlat" class="form-control" value="<?= $platedit['prixPlat'] ?? ''; ?>" placeholder="Prix du plat" min="0" max="1000" required>
         </div>
         <div class="mb-3">
             <label for="descriptionPlat" class="form-label fw-bold">Description</label>

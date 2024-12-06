@@ -1,10 +1,17 @@
 <?php
 include './connexion.php';
 
-$user_id = $_SESSION['user_id'] ? $_SESSION['user_id'] : null;
-$pdostat = $connexion->prepare('SELECT * FROM planningscommandeclients WHERE idClient = :id ');
-$pdostat->bindValue(':id', $user_id ,PDO::PARAM_INT) ;
+$user_id = $_SESSION['user_id'] && $_SESSION['role'] !== 'admin' ? $_SESSION['user_id'] : null;
+$client_id_as_string = $_SESSION['user_id'] && $_SESSION['role'] !== 'admin' ? $_SESSION['user_id'] : 'null';
 
+$pdostat = $connexion->prepare("SELECT planningscommandeclients.* , users.prenom, users.nom, plat.nomPlat
+                                    FROM `planningscommandeclients` 
+                                    JOIN users on users.id = planningscommandeclients.idClient
+                                    JOIN plat on plat.Id = planningscommandeclients.id_plat
+                                    WHERE 'null' = :client_id_as_string OR users.id = :client_id"
+                                    );
+$pdostat->bindValue(':client_id', $user_id ,PDO::PARAM_INT) ;
+$pdostat->bindValue(':client_id_as_string', $client_id_as_string ,PDO::PARAM_STR) ;
 $executeisOk = $pdostat->execute();
 $plannings = $pdostat->fetchAll();
 ?>
@@ -39,7 +46,9 @@ $plannings = $pdostat->fetchAll();
                 <table class="table table-hover table-striped align-middle w-auto mx-auto">
                     <thead class="table-light">
                         <tr>
-                            <th class="text-nowrap">Plat</th>
+                            <th class="text-nowrap">ID</th>
+                            <th class="text-nowrap">client name</th> 
+                            <th class="text-nowrap">Plat name</th>
                             <th class="text-nowrap">Quantité</th>
                             <th class="text-nowrap">Jour Commande</th>
                             <th class="text-nowrap">Heure</th>
@@ -51,7 +60,9 @@ $plannings = $pdostat->fetchAll();
                     <tbody>
                         <?php foreach ($plannings as $planning): ?>
                             <tr>
-                                <td><?= $planning['plat'] ?></td>
+                                <td><?= $planning['id'] ?></td>
+                                <td><?= $planning['prenom'] . ' ' . $planning['nom'] ?></td>
+                                <td><?= $planning['nomPlat'] ?></td>
                                 <td><?= $planning['quantite'] ?></td>
                                 <td><?= $planning['jourCommande'] ?></td>
                                 <td><?= $planning['heure'] ?></td>

@@ -8,6 +8,10 @@ if (isset($_POST['action'])) {
         $executeisOk = $pdostat->execute();
         $planningscommande = $pdostat->fetch();
     }
+    include './connexion.php';
+    $pdostat = $connexion->prepare('SELECT * FROM plat');
+    $executeisOk = $pdostat->execute();
+    $plats = $pdostat->fetchAll();
 }
 
 ?>
@@ -23,11 +27,18 @@ if (isset($_POST['action'])) {
                     <h3 class="card-title mb-4">Modifier votre Plannings commande</h3>
                     <form id="planningsForm" action="./controler_in_planing_command/modifierplannings.php" method='POST'>
                         <input type="hidden" name="id" data-original="<?= $planningscommande['id'] ?>" value="<?= $planningscommande['id'] ?>">
-                        
+
                         <div class="mb-3 row">
                             <label class="col-sm-4 col-form-label">Plat</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="plat" data-original="<?= $planningscommande['plat'] ?>" value="<?= $planningscommande['plat'] ?>">
+                                <select name="plat" id="plat"  class="form-select" aria-label="Default select example>
+                                    <option value="choisissez un plat">Choisissez un plat</option>
+                                    <?php foreach ($plats as $plat) : ?>
+
+                                        <option value="<?php echo $plat['Id'] ?>">
+                                            <?php echo $plat['nomPlat']; ?></option>
+                                    <?php endforeach; ?></option>
+                                </select>
                             </div>
                         </div>
 
@@ -41,7 +52,7 @@ if (isset($_POST['action'])) {
                         <div class="mb-3 row">
                             <label class="col-sm-4 col-form-label">Jour de Commande</label>
                             <div class="col-sm-8">
-                                <?php 
+                                <?php
                                 $jours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
                                 $joursSelectionnes = explode(',', $planningscommande['jourCommande']);
                                 foreach ($jours as $jour) {
