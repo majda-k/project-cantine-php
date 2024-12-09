@@ -28,7 +28,7 @@ if (!isset($_SESSION['is_loged_in'])) {
             case 'client':
             case 'admin':
 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($action)) {
                     if ($action === "openCreateForm") {
                         include("./controler_in_planing_command/creationplanningscommande.php");
                     } else if ($action === "modifier") {
