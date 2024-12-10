@@ -139,8 +139,8 @@ $plats = $pdostat->fetchAll();
       <section class="mb-4 h-100 d-flex flex-column" style="background-color: #f7d7b3; padding: 20px; border-radius: 8px;">
         <h3 class="text-secondary mb-4">Les Dernières Commandes</h3>
         <div class="flex-grow-1">
-          <?php foreach (['burger-img.jpg', 'pzza.img', 'burgercheese-img.jpg'] as $image) : ?>
-            <div class="card mb-3 shadow-sm" style="max-height: 200px; overflow: hidden;">
+          <?php foreach (['burger-img.jpg', 'cheeseburger.png', 'burgercheese-img.jpg'] as $image) : ?>
+            <div class="card mb-3 shadow-sm" style="max-height: 300px; overflow: hidden;">
               <div class="row g-0">
                 <div class="col-4">
                   <img src="images/<?= $image ?>" class="img-fluid rounded-start" alt="Commande Image">

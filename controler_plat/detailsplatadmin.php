@@ -12,7 +12,6 @@ $plat = $pdostat->fetch();
     <!-- Header -->
     <div class="row mb-4">
         <div class="col">
-            <h2 class="h3">Bonjour <?= $_SESSION['prenom'] ?? 'Admin' ?></h2>
         </div>
     </div>
 

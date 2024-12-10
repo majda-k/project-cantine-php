@@ -61,6 +61,7 @@ ini_set('display_errors', 1);
                             $_SESSION['user_id'] = $user['id'];
                             $_SESSION['email'] = $user['email'];
                             $_SESSION['nom'] = $user['nom'];
+                            $_SESSION['prenom'] = $user['prenom'];
                             $_SESSION['role'] = $user['role'];
                             header('Location: in_dashbord.php');
                             exit();

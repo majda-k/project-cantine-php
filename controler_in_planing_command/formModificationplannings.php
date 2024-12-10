@@ -21,7 +21,7 @@ if (isset($_POST['action'])) {
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="mb-0">Bonjour </h2>
+                    
                 </div>
                 <div class="card-body">
                     <h3 class="card-title mb-4">Modifier votre Plannings commande</h3>

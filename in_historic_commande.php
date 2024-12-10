@@ -24,17 +24,18 @@ $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
         // Include the appropriate dashboard based on user role
         switch ($userRole) {
             case 'admin':
-               
-            case 'employee':
-             
             case 'client':
-                include("./controler_historic_commande/ListHistoricCommand.php");
+            case 'employee':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' &&  $action === 'modifier') {
+                    include("./controler_historic_commande/modifierlistcommande.php");
+                }else if($_SERVER['REQUEST_METHOD'] === 'POST' &&  $action === 'supprimer'){
+                    include("./controler_historic_commande/supprimerlistcommande.php");
+                }
+                else{
+                    include("./controler_historic_commande/ListHistoricCommandClient.php");
+                }
                 break;
-            default:
-                // If no valid role, logout user
-                session_destroy();
-                header('Location: login.php');
-                exit();
+           
         }
         ?>
     </div>

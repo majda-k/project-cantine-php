@@ -34,7 +34,7 @@ $plats = $pdostat->fetchAll();
   <!-- Header -->
   <div class="row mb-3">
     <div class="col">
-      <h2 class="h3">Bonjour <?= $_SESSION['prenom'] ?? 'Client' ?></h2>
+      <h2 class="h3">Bonjour <?= $_SESSION['prenom'] ?? 'Client' ?>
     </div>
   </div>
   <!-- Main Content -->
@@ -108,7 +108,7 @@ $plats = $pdostat->fetchAll();
           $count = 0;
 
           // Tableau d'images correspondant aux plats
-          $images = ['burger-img.jpg',  'burgercheese-img.jpg' ,'pizza-aux-fruits-de-mer.jpg'];
+          $images = ['burger-img.jpg',  'cheeseburger.png' ,'pizza-aux-fruits-de-mer.jpg'];
 
           // Parcourir les plats
           foreach ($plats as $index => $plat) :
@@ -149,7 +149,7 @@ $plats = $pdostat->fetchAll();
       <!-- Recent Orders -->
       <div class="mb-4">
         <h3 class="mb-3">Les Derniers Commandes</h3>
-        <?php foreach (['burger-img.jpg', 'pzza.img', 'burgercheese-img.jpg'] as $image) : ?>
+        <?php foreach (['burger-img.jpg', 'burgercheese-img.jpg'] as $image) : ?>
           <div class="card mb-3 shadow-sm">
             <div class="row g-0">
               <div class="col-4">
