@@ -1,25 +1,10 @@
 <?php
-// Define the data
-$orders = [
-    [
-        'plat' => 'burger',
-        'quantite' => 3,
-        'prix' => '16 MAD',
-        'date' => '09/09/2023',
-        'heure' => '12h00',
-        'statut' => 'En Cours de Preparation',
-        'badge_class' => 'bg-secondary'
-    ],
-    [
-        'plat' => 'burger',
-        'quantite' => 3,
-        'prix' => '16 MAD',
-        'date' => '09/09/2023',
-        'heure' => '12h00',
-        'statut' => 'Commande Annuler',
-        'badge_class' => 'bg-danger'
-    ]
-];
+include './connexion.php';
+$pdostat = $connexion->prepare('SELECT * FROM commande WHERE idClient = :idClient');
+$pdostat->bindValue(':idClient', $_SESSION['user_id'], PDO::PARAM_INT);
+$executeisOk = $pdostat->execute();
+$orders = $pdostat->fetchAll();
+
 ?>
 
 <div class="container-fluid py-4">
@@ -32,18 +17,30 @@ $orders = [
     <!-- fin header -->
     <div class="content5 d-flex justify-content-center">
         <div class="creation d-flex flex-column">
+
+            <!-- generate Commandes Button -->
+            <div class="d-flex justify-content-end">
+                <form action="/project-cantine-php/in_historic_commande.php" method="POST">
+                    <button type="submit" name="action" value="generate" class="btn btn-primary">generate Commandes</button>
+                </form>
+            </div>
+
             <!-- debut tableau -->
-            <div class="table mt-5">
+            <div class="table">
                 <table class="table table-striped">
                     <thead>
                         <tr class="font-sm">
+
+                            <th scope="col" class="font-weight-bold">Id planning</th>
+                            <th scope="col" class="font-weight-bold">Id client</th>
                             <th scope="col" class="font-weight-bold">Plat</th>
                             <th scope="col" class="font-weight-bold">Quantite</th>
                             <th scope="col" class="font-weight-bold">Prix</th>
                             <th scope="col" class="font-weight-bold">Date de commande</th>
                             <th scope="col" class="font-weight-bold">Heure de commande</th>
                             <th scope="col" class="font-weight-bold">Statut</th>
-                           
+                            <th scope="col" class="font-weight-bold">Creer en </th>
+
                             <?php if ($_SESSION['role'] == 'employee' || $_SESSION['role'] == 'admin'): ?>
                                 <th scope="col" class="font-weight-bold">Action</th>
                             <?php endif; ?>
@@ -52,17 +49,16 @@ $orders = [
                     <tbody>
                         <?php foreach ($orders as $order): ?>
                             <tr class="font-xs">
-                                <th scope="row"><?= $order['plat'] ?></th>
+                                <th scope="row"><?= $order['id_planning'] ?></th>
+                                <th scope="row"><?= $order['idClient'] ?></th>
+                                <th scope="row"><?= $order['id_plat'] ?></th>
                                 <th scope="row"><?= $order['quantite'] ?></th>
                                 <th scope="row"><?= $order['prix'] ?></th>
-                                <th scope="row"><?= $order['date'] ?></th>
+                                <th scope="row"><?= $order['jourCommande'] ?></th>
                                 <th scope="row"><?= $order['heure'] ?></th>
-                                <th scope="row">
-                                    <span class="badge <?= $order['badge_class'] ?>" style="display: inline-block; text-align: center; font-size: 14px; padding: 8px; width: fit-content;">
-                                        <?= $order['statut'] ?>
-                                    </span>
-                                </th>
-                                
+                                <th scope="row"><?= $order['status'] ?></th>
+                                <th scope="row"><?= $order['creer_en'] ?></th>
+
                                 <?php if ($_SESSION['role'] == 'employee' || $_SESSION['role'] == 'admin'): ?>
                                     <th scope="row" class="d-flex justify-content-around">
                                         <form action="/project-cantine-php/in_historic_commande.php" method="POST">

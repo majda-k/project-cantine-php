@@ -30,6 +30,8 @@ $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
                     include("./controler_historic_commande/modifierlistcommande.php");
                 }else if($_SERVER['REQUEST_METHOD'] === 'POST' &&  $action === 'supprimer'){
                     include("./controler_historic_commande/supprimerlistcommande.php");
+                }else if($_SERVER['REQUEST_METHOD'] === 'POST' &&  $action === 'generate'){
+                    include("./controler_historic_commande/generatecommandeJour.php");
                 }
                 else{
                     include("./controler_historic_commande/ListHistoricCommandClient.php");
